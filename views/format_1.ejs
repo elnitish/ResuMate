@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .resume {
+            display: flex;
+            width: 800px;
+            height: 1131px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .left {
+            background-color: #2c3e50;
+            color: white;
+            width: 30%;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .left img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .left h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .left p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #7f8c8d;
+            padding-bottom: 5px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .right {
+            padding: 20px;
+            width: 70%;
+            height: 882px;
+        }
+
+        .right h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .right h2 {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .profile,
+        .experience,
+        .references {
+            margin-bottom: 20px;
+        }
+
+        .profile h3,
+        .experience h3,
+        .references h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+
+        .experience .job {
+            margin-bottom: 15px;
+        }
+
+        .experience .job h4 {
+            font-size: 15px;
+            color: #2c3e50;
+        }
+
+        .experience .job p {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        p {
+            color: #7f8c8d;
+        }
+
+        .references ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .references ul li {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .references ul li span {
+            display: block;
+            color: #2c3e50;
+        }
+        .downloadBtn{
+            height: 50px;
+            width: 120px;
+            background-color: greenyellow;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .downloadBtn:hover{
+            font-style: italic;
+            background-color: rgb(137, 194, 53);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume">
+        <!-- Left Section -->
+        <div class="left">
+            <img src="<%= profilePicture %>" alt="Profile Picture" width="200">
+            <h2>
+                <%= user.fullname %>
+            </h2>
+            <h4>
+                <%= user.positionApplying %>
+            </h4>
+            <br>
+            <div class="section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>
+                        <%= user.phone %>
+                    </li>
+                    <li>
+                        <%= user.email %>
+                    </li>
+                    <li>
+                        <%= user.address %>
+                    </li>
+                    <li>
+                        <%= user.url %>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Languages</h3>
+                <%= user.languages %>
+            </div>
+
+            <div class="section">
+                <h3>References</h3>
+                <ul>
+                    <li>
+                        <%= user.refname %>
+                    </li>
+                    <li>
+                        <%= user.refcomp %>
+                    </li>
+                    <li>
+                        <%= user.refcon %>
+                    </li>
+                    <li>
+                        <%= user.refemail %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right">
+            <h1>
+                <%= user.fullname %>
+            </h1>
+            <h2>
+                <%= user.positionApplying %>
+            </h2>
+
+            <div class="profile">
+                <h3>Profile</h3>
+                <p>
+                    <%= user.about %>
+                </p>
+            </div>
+
+            <!-- Education Section Moved Here -->
+            <div class="section">
+                <h3>Education</h3>
+                <p>
+                    <%= user.qualification %>
+                </p>
+            </div>
+
+            <div class="experience">
+                <h3>Work Experience</h3>
+
+                <div class="job">
+                    <h3>
+                        <%= user.cn %>
+                    </h3>
+                    <h4>
+                        <%= user.position %>
+                    </h4>
+                    <h5>
+                        <%= user.duration %>
+                    </h5>
+                    <p style="font-size: medium;">
+                        <%= user.workexp %>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Skills Section Moved Below -->
+            <div class="section">
+                <h3>Skills</h3>
+                <p>
+                    <%= user.expertise %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <button class="downloadBtn">Download</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        let downBtn = document.getElementsByClassName("downloadBtn");
+        downBtn[0].addEventListener("click", () => {
+            const { jsPDF } = window.jspdf; // Get jsPDF from the UMD module
+            const pdf = new jsPDF({
+                orientation: 'portrait', // or 'landscape'
+                unit: 'px',              // Use pixels for easier scaling
+                format: [800, 1131] // Match content dimensions
+            });
+
+            const content = document.getElementsByClassName("resume")[0]; // The HTML content to convert
+
+            pdf.html(content, {
+                callback: function (pdf) {
+                    pdf.save("Resume.pdf"); // Save the generated PDF
+                },
+                x: 0,
+                y: 0,
+                html2canvas: {
+                    scale: 1, // Render at full scale
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

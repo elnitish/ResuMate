@@ -1,0 +1,104 @@
+/* Login Section */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://source.unsplash.com/1600x900/?technology,workspace') no-repeat center/cover;
+    color: #333;
+}
+
+.login-container {
+    background-color: whitesmoke;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+
+.login-form input:focus {
+    outline: none;
+    border: 1px solid #ff9800;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #e68900;
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #ff9800;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+}
+
+h2 {
+    font-size: xx-large;
+}
+
+a:hover {
+    color: #e68900;
+}

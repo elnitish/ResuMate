@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #222;
+    color: #ff9800;
+}
+
+.logo a {
+
+    font-size: 40px;
+    color: #ff9800;
+    text-decoration: none;
+}
+a:visited{
+    font-size: 24px;
+    font-family: "Roboto", sans-serif;
+    color: #e68900;
+}
+.logo span {
+    color: #ff9800;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.auth-buttons {
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #ff9800;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn{
+    display: flex;
+}
+.auth-buttons:hover {
+    background-color: #e68900;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://source.unsplash.com/1600x900/?ResuMate,technology') no-repeat center/cover;
+    color: white;
+}
+
+/* Hero Content with Opacity Transition */
+.hero-content {
+    opacity: 0;
+    /* Start with invisible content */
+    animation: fadeInOpacity 3s ease-in-out forwards;
+    /* Add the opacity animation */
+}
+
+/* Keyframe for opacity animation */
+@keyframes fadeInOpacity {
+    from {
+        opacity: 0;
+        /* Start at 0% visibility */
+    }
+
+    to {
+        opacity: 1;
+        /* End at 100% visibility */
+    }
+}
+
+
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: #ff9800;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 15px 30px;
+    background-color: #ff9800;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #e68900;
+}
+
+/* Footer */
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

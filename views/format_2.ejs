@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        /* General Reset */
+        body {
+            display: flex;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.1;
+        }
+
+        p {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .bigdiv {
+            border: 2px solid #7a1e1e;
+            background-color: rgb(248, 240, 232);
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: #fff;
+            padding: 15px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin: 0;
+            color: #7a1e1e;
+            /* Red color */
+        }
+
+        .header p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .contact-info p {
+            margin-bottom: 3px;
+
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 20px;
+            color: #7a1e1e;
+            margin-bottom: 0px;
+            padding-top: 3px;
+            border-bottom: 2px solid #7a1e1e;
+            padding-bottom: 3px;
+            background-color: rgb(248, 240, 232);
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+        }
+
+        .content-section .item h4 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .content-section .item span {
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Bullet Points */
+        .content-section ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .content-section ul li {
+            list-style-type: disc;
+            margin-bottom: 3px;
+        }
+
+        img {
+            border-radius: 100%;
+        }
+
+        .flex {
+            text-align: center;
+            width: 33%;
+            padding: 10px;
+        }
+
+        .downloadBtn {
+            height: 40px;
+            width: 100px;
+            background-color: greenyellow;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .downloadBtn:hover {
+            font-style: italic;
+            background-color: rgb(137, 194, 53);
+        }
+
+        .straight {
+            display: flex;
+            justify-content: space-between;
+            text-decoration: underline solid;
+        }
+
+        .grid {
+            margin-bottom: -15px;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+        }
+
+        h3 {
+            margin-bottom: 0px;
+        }
+
+        .resume {
+            background-color: whitesmoke;
+            border: 1px solid #7a1e1e;
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            max-height: 1131px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume">
+        <div class="container">
+            <div class="bigdiv">
+                <!-- Header -->
+                <div class="photo flex">
+                    <img src="<%= profilePicture %>" height="120px" />
+                </div>
+                <div class="header flex">
+                    <h1>
+                        <%= user.fullname %>
+                    </h1>
+                    <h3>
+                        <%= user.positionApplying %>
+
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info flex">
+                    <p>
+                        <%= user.phone %>
+                    </p>
+                    <p>
+                        <%= user.email %>
+                    </p>
+                    <p>
+                        <%= user.address %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- About Yourself Section -->
+            <div class="content-section">
+                <h2 class="section-title">Profile</h2>
+                <p>
+                    <%= user.about %>
+                </p>
+            </div>
+
+            <!-- Education Section -->
+            <div class="content-section">
+                <h2 class="section-title">Education</h2>
+                <p>
+                    <%= user.qualification %>
+                </p>
+            </div>
+
+            <!-- Work Description -->
+            <div class="experience">
+                <h3 class="section-title">Work Description</h3>
+                <div class="job">
+                    <div class="straight">
+                        <h3>
+                            <%= user.cn %>
+                        </h3>
+                        <h3>
+                            <%= user.pos %>
+                        </h3>
+                        <h3>
+                            <%= user.duration %>
+                        </h3>
+                    </div>
+                    <p>
+                        <%= user.workexp %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conferences Section -->
+            <div class="content-section">
+                <h2 class="section-title">References</h2>
+                <div class="grid">
+                    <h3>
+                        <%= user.refname %>
+                    </h3>
+                    <h3>
+                        <%= user.refcomp %>
+                    </h3>
+                    <h4>
+                        <%= user.refcon %>
+                    </h4>
+                    <h4>
+                        <%= user.refemail %>
+                    </h4>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="content-section">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p>
+                    <%= user.expertise %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <button class="downloadBtn">Download</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        let downBtn = document.getElementsByClassName("downloadBtn");
+        downBtn[0].addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'px',
+                format: [800, 1131]
+            });
+
+            const content = document.getElementsByClassName("resume")[0]; 
+
+            pdf.html(content, {
+                callback: function (pdf) {
+                    pdf.save("document.pdf"); 
+                },
+                x: 0,
+                y: 0,
+                html2canvas: {
+                    scale: 1,
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
